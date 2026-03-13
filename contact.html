@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact | Alan Jishoy</title>
+
+<style>
+/* RESET & FONT */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+  position:relative;
+  min-height:100vh;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #38bdf8);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* PARTICLE EFFECT */
+body::before {
+  content: "";
+  position: absolute;
+  top:0;
+  left:0;
+  width:200%;
+  height:200%;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveStars 60s linear infinite;
+  opacity:0.15;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes moveStars {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+/* NAVBAR */
+nav{
+  padding:20px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+}
+
+nav a{
+  margin:0 20px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+/* PAGE TITLE */
+h1{
+  margin-top:40px;
+  font-size:36px;
+}
+
+/* CONTACT CARD */
+.contact-card{
+  margin:100px auto;
+  width:320px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  position:relative;
+  z-index:1;
+}
+
+.contact-card p{
+  margin:15px 0;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.contact-card p:hover{
+  color:#38bdf8;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  margin-top:100px;
+  padding:20px;
+  background:#020617;
+  position:relative;
+  z-index:1;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+ 
+  <a href="skills.html">Skills</a>
+   <a href="contact.html">Contact</a>
+  
+</nav>
+
+<h1>Contact Me</h1>
+
+<div class="contact-card">
+  <p>📧 alan@email.com</p>
+  <p>📱 +91 9995089569</p>
+  <p>💻 github.com/alanjishoy</p>
+  <p>🔗 linkedin.com/in/alanjishoy</p>
+</div>
+
+<footer>
+  <p>© 2026 Alan Jishoy</p>
+</footer>
+
+</body>
+</html>
