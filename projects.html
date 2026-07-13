@@ -1,161 +1,287 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Projects | Alan Jishoy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Alan Jishoy</title>
 
-<style>
-/* RESET & FONT */
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
-  position:relative;
-  min-height:100vh;
-  background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #38bdf8);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
+  <style>
+    /* RESET & FONT */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* PARTICLE EFFECT */
-body::before {
-  content: "";
-  position: absolute;
-  top:0;
-  left:0;
-  width:200%;
-  height:200%;
-  background: radial-gradient(white 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: moveStars 60s linear infinite;
-  opacity:0.15;
-  pointer-events:none;
-  z-index:-1;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #38bdf8);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+    }
 
-@keyframes moveStars {
-  0% { transform: translate(0,0); }
-  100% { transform: translate(-50%, -50%); }
-}
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-/* NAVBAR */
-nav{
-  padding:20px;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-}
+    /* PARTICLE EFFECT */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(white 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveStars 60s linear infinite;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-nav a{
-  margin:0 20px;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
+    @keyframes moveStars {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-50%, -50%); }
+    }
 
-nav a:hover{
-  color:#38bdf8;
-}
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 10;
+    }
 
-/* PAGE TITLE */
-h1{
-  margin-top:40px;
-  font-size:36px;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-/* PROJECT GRID */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  padding:60px;
-  z-index:1;
-  position:relative;
-}
+    nav a:hover {
+      color: #38bdf8;
+    }
 
-/* CARD DESIGN */
-.card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:15px;
-  overflow:hidden;
-  transition:0.3s;
-}
+    /* MAIN CONTENT WRAPPER */
+    main {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
 
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
+    /* PAGE TITLE */
+    h1 {
+      margin-top: 50px;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #ffffff, #93c5fd, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
 
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
+    .subtitle {
+      color: #cbd5e1;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
 
-.card h3{
-  margin-top:10px;
-}
+    /* PROJECT GRID */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 20px 60px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-.card p{
-  padding:10px 20px 20px;
-}
+    /* CARD DESIGN */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
 
-/* FOOTER */
-footer{
-  padding:20px;
-  background:#020617;
-  position:relative;
-  z-index:1;
-}
-</style>
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.06);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      background: rgba(14, 165, 233, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      font-weight: 300;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px;
+      background: #020617;
+      position: relative;
+      z-index: 10;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 640px) {
+      .projects {
+        padding: 20px 20px 60px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="skills.html">Skills</a>
-  <a href="contact.html">Contact</a>
-  
-  
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<h1>My Projects</h1>
+  <main>
+    <h1>My Projects</h1>
+    <p class="subtitle">A curated collection of web applications, platforms, and designs I have developed.</p>
 
-<div class="projects">
+    <div class="projects">
 
-<div class="card">
-  <img src="bike.png" alt="Bike Rental System">
-  <h3>Renting Website</h3>
-  <p>Online Renting Store.</p>
-</div>
+      <!-- Bike Rental System -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="bike.png" alt="Online Bike Rental System">
+        </div>
+        <div class="card-body">
+          <h3>Online Bike Rental System</h3>
+          <div class="tech-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <p>A web-based platform allowing users to browse, compare, and book two-wheelers online. Built with a full-fledged booking system, real-time availability checks, and an admin dashboard for inventory management.</p>
+        </div>
+      </div>
 
-<div class="card">
-  <img src="boat.png" alt="Online Boat Store">
-  <h3>Boat Finding Serviece</h3>
-  <p>Boat Servieces.</p>
-</div>
+      <!-- Boat Booking System -->
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="boat.png" alt="Online Boat Booking System">
+        </div>
+        <div class="card-body">
+          <h3>Online Boat Booking System</h3>
+          <div class="tech-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Tailwind</span>
+          </div>
+          <p>A robust boat booking portal connecting travelers with boat owners. Features include slot reservation, route mapping, payment logging, and user dashboards for customers, owners, and system administrators.</p>
+        </div>
+      </div>
 
-<div class="card">
-  <img src="car.png" alt="Weather App">
-  <h3>Renting Website</h3>
-  <p>Online Renting Store.</p>
-</div>
 
-</div>
 
-<footer>
-  <p>© 2026 Alan Jishoy</p>
-</footer>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Alan Jishoy</p>
+  </footer>
 
 </body>
 </html>
